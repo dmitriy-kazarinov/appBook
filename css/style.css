@@ -1,0 +1,16 @@
+.user-logo {
+    width: 85px;
+    height: 92px;
+    float: right;
+    background-size: cover;
+    background-position: center;
+}
+.friend-card {
+    min-height: 133px;
+}
+.archive-item {
+    padding: 10px;
+}
+.archive-item button {
+    float: right;
+}
