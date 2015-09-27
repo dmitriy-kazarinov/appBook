@@ -1,0 +1,23 @@
+[
+    {
+        "name": "John",
+        "address": "1, a road, a town, a county, a postcode",
+        "tel": "1234567890",
+        "site": "dimadulin.in.ua",
+        "logo": "/img/user-logo.jpg"
+    },
+    {
+        "name": "Jane",
+        "address": "2, a street, a city, a county, a postcode",
+        "tel": "1234567890",
+        "site": "dimadulin.in.ua",
+        "logo": "/img/user-logo.jpg"
+    },
+    {
+        "name": "Fred",
+        "address": "4, a street, a suburb, a county, a postcode",
+        "tel": "1234567890",
+        "site": "dimadulin.in.ua",
+        "logo": "/img/user-logo.jpg"
+    }
+]
