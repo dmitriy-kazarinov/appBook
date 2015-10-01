@@ -13,7 +13,7 @@
         self.selectedAvailableCountries = ko.observable(selectedAvailableCountries);
     }
 
-    function appBook(){
+    function AppBook(){
         var self = this;
         self.title = ko.observable("appBook");
         self.chef = {
@@ -80,7 +80,21 @@
             self.archive.removeAll();
         };
 
+        //table
+        self.myPlans = ko.observableArray([]);
+        self.myPlans.push(
+            {
+                first: 41,
+                second: 33
+            },
+            {
+                first: 20,
+                second: 33
+            }
+        );
+
     }
 
-    ko.applyBindings( new appBook());
+    var appBook = new AppBook()
+    ko.applyBindings(appBook);
 })();

@@ -95,7 +95,27 @@
                     </ul>
                 </div>
             </div>
-
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <h3>Table plans</h3>
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>first</td>
+                            <td>second</td>
+                        </tr>
+                        <!-- ko foreach: myPlans -->
+                        <tr>
+                            <td>Week <span data-bind="text: $index()+1"></span></td>
+                            <td data-bind="text: first"></td>
+                            <td data-bind="text: second"></td>
+                        </tr>
+                        <!-- /ko -->
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
