@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <title>appBook</title>
     <link rel="stylesheet" href="css/reset.css"/>
-    <!-- bower:css -->
-    <!-- endbower -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css"/>
     <link rel="stylesheet" href="css/style.css"/>
+    <script data-main="app/app" src="node_modules/requirejs/require.js"></script>
 </head>
-<body>
+<body id="app">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
@@ -20,50 +19,11 @@
         </div>
         <div class="row">
             <div class="col-xs-6">
-                Change title and look to console: <input class="form-control" type="text" data-bind="value: title, valueUpdate: 'keyup'"/>
+                Change title and look to console:
+                <input class="form-control" type="text" data-bind="value: title, valueUpdate: 'keyup'"/>
             </div>
             <div class="col-xs-12">
                 <p>Friends count (<span data-bind="text: friends().length"></span>)</p>
-            </div>
-
-            <div class="col-xs-6">
-                <form role="form" class="well">
-                    <div class="form-group">
-                        <label for="name"><strong>Write a name:</strong></label>
-                        <input type="text" class="form-control" id="name" placeholder="Write a name" data-bind="value: formFriend.name">
-                    </div>
-                    <div class="form-group">
-                        <label for="address"><strong>Write a address:</strong></label>
-                        <input type="text" class="form-control" id="address" placeholder="Write a address" data-bind="value: formFriend.address">
-                    </div>
-                    <div class="form-group">
-                        <label for="telephone"><strong>Write a telephone:</strong></label>
-                        <input type="text" class="form-control" id="telephone" placeholder="Write a telephone" data-bind="value: formFriend.telephone">
-                    </div>
-                    <div class="form-group">
-                        <label for="skills"><strong>Write skills:</strong></label>
-                        <input type="text" class="form-control" id="skills" placeholder="Write skills" data-bind="value: formFriend.skills">
-                    </div>
-                    <div class="form-group">
-                        <label for="country"><strong>Chose country:</strong></label>
-                        <select id="country" class="form-control" data-bind="options: formFriend.availableCountries, value: formFriend.selectedAvailableCountries"></select>
-                    </div>
-                    <button class="btn btn-success" data-bind="click: addFriend, enable: friends().length<5">Add friend</button>
-                </form>
-            </div>
-
-            <div class="col-xs-6" data-bind="visible: archive().length">
-                <div class="archive">
-                    <p class="bg-info archive-item">Archive friends - <strong data-bind="text: archive().length"></strong></p>
-                    <div data-bind="foreach: archive">
-                        <p class="bg-info archive-item"><span data-bind="text: name"></span> from <span data-bind="text: selectedAvailableCountries"></span> <button class="btn btn-xs btn-info" data-bind="click: $root.restore">Restore</button></p>
-                    </div>
-                </div>
-               <button class="btn btn-xs btn-primary" data-bind="click: $root.clearArchive">Clear archive</button>
-            </div>
-
-            <div class="col-xs-12">
-                <p data-bind="visible: friends().length >= 5">Max friends 5</p>
             </div>
 
             <div data-bind="foreach: friends">
@@ -95,6 +55,45 @@
                     </ul>
                 </div>
             </div>
+
+            <div class="col-xs-12">
+                <p data-bind="visible: friends().length >= 5">Max friends 5</p>
+            </div>
+
+            <div class="col-xs-6">
+                <form role="form" class="well">
+                    <div class="form-group">
+                        <label for="name"><strong>Write a name:</strong></label>
+                        <input type="text" class="form-control" id="name" placeholder="Write a name" data-bind="value: formFriend.name">
+                    </div>
+                    <div class="form-group">
+                        <label for="address"><strong>Write a address:</strong></label>
+                        <input type="text" class="form-control" id="address" placeholder="Write a address" data-bind="value: formFriend.address">
+                    </div>
+                    <div class="form-group">
+                        <label for="telephone"><strong>Write a telephone:</strong></label>
+                        <input type="text" class="form-control" id="telephone" placeholder="Write a telephone" data-bind="value: formFriend.telephone">
+                    </div>
+                    <div class="form-group">
+                        <label for="skills"><strong>Write skills:</strong></label>
+                        <input type="text" class="form-control" id="skills" placeholder="Write skills" data-bind="value: formFriend.skills">
+                    </div>
+                    <div class="form-group">
+                        <label for="country"><strong>Chose country:</strong></label>
+                        <select id="country" class="form-control" data-bind="options: formFriend.availableCountries, value: formFriend.selectedAvailableCountries"></select>
+                    </div>
+                    <button class="btn btn-success" data-bind="click: addFriend, enable: friends().length<5">Add friend</button>
+                </form>
+            </div>
+            <div class="col-xs-6" data-bind="visible: archive().length">
+                <div class="archive">
+                    <p class="bg-info archive-item">Archive friends - <strong data-bind="text: archive().length"></strong></p>
+                    <div data-bind="foreach: archive">
+                        <p class="bg-info archive-item"><span data-bind="text: name"></span> from <span data-bind="text: selectedAvailableCountries"></span> <button class="btn btn-xs btn-info" data-bind="click: $root.restore">Restore</button></p>
+                    </div>
+                </div>
+               <button class="btn btn-xs btn-primary" data-bind="click: $root.clearArchive">Clear archive</button>
+            </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
@@ -118,13 +117,5 @@
             </div>
         </div>
     </div>
-
-<!-- bower:js -->
-<script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script src="bower_components/knockout/dist/knockout.js"></script>
-<!-- endbower -->
-<script src="js/knockout.mapping-latest.js"></script>
-<script src="app/app.js"></script>
 </body>
 </html>
