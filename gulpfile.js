@@ -2,8 +2,7 @@
  * Created by Дима on 12.09.2015.
  */
 var gulp        = require('gulp'),
-    browserSync = require('browser-sync').create(),
-    wiredep = require('wiredep').stream;
+    browserSync = require('browser-sync').create();
 
 // Static server
 gulp.task('browser-sync', function() {

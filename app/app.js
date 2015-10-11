@@ -1,7 +1,28 @@
-;(function(){
-    'use strict';
+requirejs.config({
+    baseUrl: '/',
+    paths: {
+        jquery: [
+            '//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js',
+            'bower_components/jquery/dist/jquery'
+        ],
+        knockout: [
+            '//cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js',
+            'bower_components/knockout/dist/knockout'
+        ],
+        bootstrap: 'bower_components/bootstrap/dist/js/bootstrap',
+        faker: 'node_modules/faker/build/build/faker'
+    },
+    shim: {
+        'bootstrap': {
+            deps: ['jquery']
+        }
+    },
+    enforceDefine: true
+});
 
-    //new class
+require(['jquery','knockout','faker'],
+    function($,ko,faker){
+
     function Friend(name,address,tel,skills,selectedAvailableCountries){
         var self = this;
         self.name = name;
@@ -45,7 +66,7 @@
         //add new friend-------------------------
         self.addFriend = function(){
             var newFriend = ko.toJS(self.formFriend);
-            console.log(newFriend);
+            //console.log(newFriend);
             self.friends.push(new Friend(newFriend.name,newFriend.address,newFriend.telephone,newFriend.skills,newFriend.selectedAvailableCountries));
             self.clearForm();
             //todo post to server
@@ -84,17 +105,17 @@
         self.myPlans = ko.observableArray([]);
         self.myPlans.push(
             {
-                first: 41,
-                second: 33
+                first: faker.random.number(),
+                second: faker.lorem.sentence()
             },
             {
-                first: 20,
-                second: 33
+                first: faker.random.number(),
+                second: faker.lorem.sentence()
             }
         );
 
     }
 
     var appBook = new AppBook()
-    ko.applyBindings(appBook);
-})();
+    ko.applyBindings(appBook, document.getElementById("app"));
+});
